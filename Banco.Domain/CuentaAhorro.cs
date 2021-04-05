@@ -4,7 +4,7 @@ namespace Banco.Domain
 {
     public class CuentaAhorro : CuentaBancaria
     {
-        public CuentaAhorro(string numero, string nombre, string ciudad) : base(numero, nombre, ciudad)
+        public CuentaAhorro(string numero, string nombre, string ciudad, string email="") : base(numero, nombre, ciudad,email)
         {
         }
 
