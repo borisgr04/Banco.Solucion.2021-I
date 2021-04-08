@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Domain", "Banco.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Domain.Test", "Banco.Domain.Test\Banco.Domain.Test.csproj", "{C113E905-6B34-41A6-85B9-2F219B1BE238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Application", "Banco.Application\Banco.Application.csproj", "{AA67192F-7C74-4B33-9FEE-E732FB4257C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Application", "Banco.Application\Banco.Application.csproj", "{AA67192F-7C74-4B33-9FEE-E732FB4257C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Application.Test", "Banco.Application.Test\Banco.Application.Test.csproj", "{2FC07907-2C8C-4ACB-BE7B-73193ADD444C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banco.Application.Test", "Banco.Application.Test\Banco.Application.Test.csproj", "{2FC07907-2C8C-4ACB-BE7B-73193ADD444C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Infrastructure.Data", "Banco.Infrastructure.Data\Banco.Infrastructure.Data.csproj", "{59D77C90-B1EE-4DB2-8DA0-2AF25C8D9EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banco.Infrastructure.Systems", "Banco.Infrastructure.Systems\Banco.Infrastructure.Systems.csproj", "{4A28058F-E232-4C5B-83EE-BC8048E3CA21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{2FC07907-2C8C-4ACB-BE7B-73193ADD444C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FC07907-2C8C-4ACB-BE7B-73193ADD444C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FC07907-2C8C-4ACB-BE7B-73193ADD444C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D77C90-B1EE-4DB2-8DA0-2AF25C8D9EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D77C90-B1EE-4DB2-8DA0-2AF25C8D9EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D77C90-B1EE-4DB2-8DA0-2AF25C8D9EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D77C90-B1EE-4DB2-8DA0-2AF25C8D9EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A28058F-E232-4C5B-83EE-BC8048E3CA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A28058F-E232-4C5B-83EE-BC8048E3CA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A28058F-E232-4C5B-83EE-BC8048E3CA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A28058F-E232-4C5B-83EE-BC8048E3CA21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

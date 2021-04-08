@@ -22,10 +22,11 @@ namespace Banco.Application
 
         public string Consignar(string numeroCuenta, string ciudad, decimal valor)
         {
-            var cuenta = _cuentaRepository.Find(numeroCuenta);
-            var response = cuenta.Consignar(valor, ciudad);
-            _unitOfWork.Commit();
-            _emailServer.Send("Se efectúo consignacion", cuenta.Email);
+            var cuenta = _cuentaRepository.Find(numeroCuenta);//infraestructura-datos
+            var response = cuenta.Consignar(valor, ciudad);//domain
+            _cuentaRepository.Update(cuenta);//proyectarse el cambio y registrarlo en la unidad de trabajo
+            _unitOfWork.Commit();//infraestructura-datos
+            _emailServer.Send("Se efectúo consignacion", cuenta.Email);//infraestructura-system
             return response;
         }
 

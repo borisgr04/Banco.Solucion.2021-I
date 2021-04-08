@@ -22,8 +22,6 @@ namespace Banco.Application.Test
             var response=service.Consignar("1010","VALLEDUPAR",0);
             //Assert
             Assert.AreEqual("El valor a consignar es incorrecto", response);
-
-
         }
     }
 }
