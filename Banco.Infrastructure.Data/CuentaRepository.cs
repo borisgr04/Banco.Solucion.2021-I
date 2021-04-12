@@ -25,6 +25,7 @@ namespace Banco.Infrastructure.Data
 
         public CuentaBancaria Find(string numeroCuenta)
         {
+            var todas=_context.CuentasBancarias.ToList();
             var cuenta=_context.CuentasBancarias.FirstOrDefault(cuenta=> cuenta.Numero==numeroCuenta);
             return cuenta;
         }

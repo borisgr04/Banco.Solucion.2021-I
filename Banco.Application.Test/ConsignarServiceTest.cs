@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Banco.Application.Test
 {
-    public class Tests
+    public class ConsignarServiceTest
     {
         [SetUp]
         public void Setup()
@@ -19,7 +19,7 @@ namespace Banco.Application.Test
                 new CuentaRepositoryFake(),
                 new MailServerFake());
             //Act
-            var response=service.Consignar("1010","VALLEDUPAR",0);
+            var response=service.Consignar("1010","VALLEDUPAR",0, new System.DateTime(2020,1,1));
             //Assert
             Assert.AreEqual("El valor a consignar es incorrecto", response);
         }

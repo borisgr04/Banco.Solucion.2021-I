@@ -12,27 +12,28 @@ namespace Banco.Application.Test.Dobles
     {
         public void Add(CuentaBancaria cuentaBancaria)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Delete(CuentaBancaria cuentaBancaria)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public CuentaBancaria Find(string numeroCuenta)
         {
-            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR");
+            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR","cliente@bancoacme.com");
         }
 
         public List<CuentaBancaria> GetAll()
         {
-            throw new NotImplementedException();
+            return new List<CuentaBancaria>();
+              //throw new NotImplementedException();
         }
 
         public void Update(CuentaBancaria cuentaBancaria)
         {
-            throw new NotImplementedException();
+                //throw new NotImplementedException();
         }
     }
 }
