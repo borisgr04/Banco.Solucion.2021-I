@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Banco.Domain.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Banco.Domain
 {
-    public abstract class CuentaBancaria: IServicioFinanciero //: Entity<int>, 
+    public abstract class CuentaBancaria: Entity<int>, IServicioFinanciero, IAggregateRoot
     {
         protected CuentaBancaria( string numero, string nombre, string ciudad, string email)
         {
@@ -14,7 +15,6 @@ namespace Banco.Domain
             Email = email;
             Movimientos = new List<MovimientoFinanciero>();
         }
-        public int Id { get; private set; }
         public List<MovimientoFinanciero> Movimientos { get; private set; }
         public string Nombre { get; private set; }
         public string Numero { get; private set; }

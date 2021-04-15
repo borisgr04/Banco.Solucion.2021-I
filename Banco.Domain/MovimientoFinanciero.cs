@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Banco.Domain.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Banco.Domain
 {
-    public class MovimientoFinanciero ///: Entity<int>
+    public class MovimientoFinanciero : Entity<long>
     {
         public MovimientoFinanciero()
         {
@@ -17,8 +18,6 @@ namespace Banco.Domain
             ValorConsignacion = valorConsignacion;
             FechaMovimiento = fechaMovimiento;
         }
-
-        public long Id { get; private set; }
 
         public CuentaBancaria CuentaBancaria { get; private set; }
         public decimal ValorRetiro { get; private set; }
