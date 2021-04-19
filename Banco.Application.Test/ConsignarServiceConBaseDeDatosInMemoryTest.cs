@@ -8,7 +8,7 @@ using NUnit.Framework;
 
 namespace Banco.Application.Test
 {
-    public class ConsignarServiceConBaseDeDatosTest
+    public class ConsignarServiceConBaseDeDatosInMemoryTest
     {
         private BancoContext _dbContext;
         private ConsignarService _consignarService;//SUT - Objeto bajo prueba
@@ -19,7 +19,7 @@ namespace Banco.Application.Test
         {
             //Arrange
             var optionsSqlite = new DbContextOptionsBuilder<BancoContext>()
-           .UseSqlite(@"Data Source=C:\sqlite\bancoDataBaseTest.db")
+           .UseInMemoryDatabase(@"BancoInmemory")
            .Options;
 
             _dbContext = new BancoContext(optionsSqlite);

@@ -34,7 +34,7 @@ namespace Banco.Infrastructure.Data.Base
         {
             _dbset.RemoveRange(entities);
         }
-        public void Edit(T entity)
+        public void Update(T entity)
         {
             _dbset.Update(entity);
         }

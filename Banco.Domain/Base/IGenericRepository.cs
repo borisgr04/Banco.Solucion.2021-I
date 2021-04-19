@@ -11,7 +11,7 @@ namespace Banco.Domain.Base
         T Find(object id);
         void Add(T entity);
         void Delete(T entity);
-        void Edit(T entity);
+        void Update(T entity);
 
         void AddRange(List<T> entities);
         void DeleteRange(List<T> entities);

@@ -8,18 +8,20 @@ using NUnit.Framework;
 
 namespace Banco.Application.Test
 {
-    public class ConsignarServiceConBaseDeDatosTest
+    [Ignore("Falta configurar la sqlite InMemroy")]
+    public class ConsignarServiceConBaseDeDatosSqliteInMemoryTest
     {
         private BancoContext _dbContext;
         private ConsignarService _consignarService;//SUT - Objeto bajo prueba
-       
+
+        //https://www.meziantou.net/testing-ef-core-in-memory-using-sqlite.htm
         //se ejecuta una vez por cada prueba //hace parte del Arrange
         [SetUp]
         public void Setup()
         {
             //Arrange
             var optionsSqlite = new DbContextOptionsBuilder<BancoContext>()
-           .UseSqlite(@"Data Source=C:\sqlite\bancoDataBaseTest.db")
+           .UseSqlite(@"Data Source=:memory:")
            .Options;
 
             _dbContext = new BancoContext(optionsSqlite);

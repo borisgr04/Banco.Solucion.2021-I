@@ -15,7 +15,7 @@
           },
           "Branches": []
         },
-        "System.Void Banco.Application.ConsignarService::.ctor(Banco.Domain.Contracts.IUnitOfWork,Banco.Domain.Contracts.ICuentaRepository,Banco.Domain.Contracts.IMailServer)": {
+        "System.Void Banco.Application.ConsignarService::.ctor(Banco.Domain.Contracts.IUnitOfWork,Banco.Domain.Contracts.ICuentaBancariaRepository,Banco.Domain.Contracts.IMailServer)": {
           "Lines": {
             "12": 3,
             "13": 3,
@@ -34,6 +34,22 @@
     }
   },
   "Banco.Domain.dll": {
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Domain\\Cliente.cs": {
+      "Banco.Domain.Cliente": {
+        "System.String Banco.Domain.Cliente::get_Nombre()": {
+          "Lines": {
+            "10": 0
+          },
+          "Branches": []
+        },
+        "System.String Banco.Domain.Cliente::get_Apellido()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
     "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Domain\\CuentaAhorro.cs": {
       "Banco.Domain.CuentaAhorro": {
         "System.String Banco.Domain.CuentaAhorro::Retirar(System.Decimal,System.String,System.DateTime)": {
@@ -114,12 +130,6 @@
     },
     "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Domain\\CuentaBancaria.cs": {
       "Banco.Domain.CuentaBancaria": {
-        "System.Int32 Banco.Domain.CuentaBancaria::get_Id()": {
-          "Lines": {
-            "17": 0
-          },
-          "Branches": []
-        },
         "System.Collections.Generic.List`1<Banco.Domain.MovimientoFinanciero> Banco.Domain.CuentaBancaria::get_Movimientos()": {
           "Lines": {
             "18": 4
@@ -134,7 +144,7 @@
         },
         "System.String Banco.Domain.CuentaBancaria::get_Numero()": {
           "Lines": {
-            "20": 3
+            "20": 5
           },
           "Branches": []
         },
@@ -242,14 +252,14 @@
         },
         "System.Void Banco.Domain.CuentaBancaria::.ctor(System.String,System.String,System.String,System.String)": {
           "Lines": {
-            "9": 3,
             "10": 3,
             "11": 3,
             "12": 3,
             "13": 3,
             "14": 3,
             "15": 3,
-            "16": 3
+            "16": 3,
+            "17": 3
           },
           "Branches": []
         }
@@ -335,53 +345,57 @@
     },
     "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Domain\\MovimientoFinanciero.cs": {
       "Banco.Domain.MovimientoFinanciero": {
-        "System.Int64 Banco.Domain.MovimientoFinanciero::get_Id()": {
-          "Lines": {
-            "21": 0
-          },
-          "Branches": []
-        },
         "Banco.Domain.CuentaBancaria Banco.Domain.MovimientoFinanciero::get_CuentaBancaria()": {
           "Lines": {
-            "23": 1
+            "22": 1
           },
           "Branches": []
         },
         "System.Decimal Banco.Domain.MovimientoFinanciero::get_ValorRetiro()": {
           "Lines": {
-            "24": 1
+            "23": 1
           },
           "Branches": []
         },
         "System.Decimal Banco.Domain.MovimientoFinanciero::get_ValorConsignacion()": {
           "Lines": {
-            "25": 1
+            "24": 1
           },
           "Branches": []
         },
         "System.DateTime Banco.Domain.MovimientoFinanciero::get_FechaMovimiento()": {
           "Lines": {
-            "26": 1
+            "25": 1
           },
           "Branches": []
         },
         "System.Void Banco.Domain.MovimientoFinanciero::.ctor()": {
           "Lines": {
-            "9": 0,
             "10": 0,
-            "11": 0
+            "11": 0,
+            "12": 0
           },
           "Branches": []
         },
         "System.Void Banco.Domain.MovimientoFinanciero::.ctor(Banco.Domain.CuentaBancaria,System.Decimal,System.Decimal,System.DateTime)": {
           "Lines": {
-            "13": 1,
             "14": 1,
             "15": 1,
             "16": 1,
             "17": 1,
             "18": 1,
-            "19": 1
+            "19": 1,
+            "20": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Domain\\Base\\Entity.cs": {
+      "Banco.Domain.Base.Entity`1": {
+        "T Banco.Domain.Base.Entity`1::get_Id()": {
+          "Lines": {
+            "9": 0
           },
           "Branches": []
         }
@@ -391,27 +405,94 @@
   "Banco.Infrastructure.Data.dll": {
     "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\BancoContext.cs": {
       "Banco.Infrastructure.Data.BancoContext": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<Banco.Domain.CuentaBancaria> Banco.Infrastructure.Data.BancoContext::get_CuentasBancarias()": {
+          "Lines": {
+            "21": 6
+          },
+          "Branches": []
+        },
         "Microsoft.EntityFrameworkCore.DbSet`1<Banco.Domain.CuentaAhorro> Banco.Infrastructure.Data.BancoContext::get_CuentasAhorro()": {
           "Lines": {
-            "12": 2
+            "22": 2
           },
           "Branches": []
         },
         "Microsoft.EntityFrameworkCore.DbSet`1<Banco.Domain.CuentaCorriente> Banco.Infrastructure.Data.BancoContext::get_CuentasCorriente()": {
           "Lines": {
-            "13": 2
-          },
-          "Branches": []
-        },
-        "Microsoft.EntityFrameworkCore.DbSet`1<Banco.Domain.CuentaBancaria> Banco.Infrastructure.Data.BancoContext::get_CuentasBancarias()": {
-          "Lines": {
-            "14": 12
+            "23": 2
           },
           "Branches": []
         },
         "System.Void Banco.Infrastructure.Data.BancoContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": {
           "Lines": {
-            "18": 2
+            "28": 2
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.BancoContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.BancoContext::.ctor()": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "15": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.BancoContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)": {
+          "Lines": {
+            "16": 2,
+            "17": 2,
+            "19": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Base\\UnitOfWork.cs": {
+      "Banco.Infrastructure.Data.UnitOfWork": {
+        "System.Void Banco.Infrastructure.Data.UnitOfWork::Commit()": {
+          "Lines": {
+            "15": 2,
+            "16": 2,
+            "17": 2
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.UnitOfWork::.ctor(Banco.Infrastructure.Data.Base.IDbContext)": {
+          "Lines": {
+            "12": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\ClienteRepository.cs": {
+      "Banco.Infrastructure.Data.ClienteRepository": {
+        "System.Void Banco.Infrastructure.Data.ClienteRepository::.ctor(Banco.Infrastructure.Data.Base.IDbContext)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\CuentaBancariaRepository.cs": {
+      "Banco.Infrastructure.Data.CuentaBancariaRepository": {
+        "System.Void Banco.Infrastructure.Data.CuentaBancariaRepository::.ctor(Banco.Infrastructure.Data.Base.IDbContext)": {
+          "Lines": {
+            "14": 2,
+            "15": 2,
+            "16": 2
           },
           "Branches": []
         }
@@ -437,11 +518,11 @@
         },
         "Banco.Domain.CuentaBancaria Banco.Infrastructure.Data.CuentaRepository::Find(System.String)": {
           "Lines": {
-            "27": 2,
-            "28": 2,
-            "29": 2,
-            "30": 2,
-            "31": 2
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0
           },
           "Branches": []
         },
@@ -455,42 +536,36 @@
         },
         "System.Void Banco.Infrastructure.Data.CuentaRepository::Update(Banco.Domain.CuentaBancaria)": {
           "Lines": {
-            "39": 2,
-            "40": 2,
-            "41": 2
+            "39": 0,
+            "40": 0,
+            "41": 0
           },
           "Branches": []
         },
         "System.Void Banco.Infrastructure.Data.CuentaRepository::.ctor(Banco.Infrastructure.Data.BancoContext)": {
           "Lines": {
-            "12": 2,
-            "13": 2,
-            "14": 2,
-            "15": 2
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0
           },
           "Branches": []
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\UnitOfWork.cs": {
-      "Banco.Infrastructure.Data.UnitOfWork": {
-        "System.Void Banco.Infrastructure.Data.UnitOfWork::Commit()": {
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\ObjectMother\\CuentaBancariaMother.cs": {
+      "Banco.Infrastructure.Data.ObjectMother.CuentaBancariaMother": {
+        "Banco.Domain.CuentaBancaria Banco.Infrastructure.Data.ObjectMother.CuentaBancariaMother::CreateCuentaAhorros(System.String)": {
           "Lines": {
-            "14": 2,
             "15": 2,
-            "16": 2
-          },
-          "Branches": []
-        },
-        "System.Void Banco.Infrastructure.Data.UnitOfWork::.ctor(Banco.Infrastructure.Data.BancoContext)": {
-          "Lines": {
-            "11": 4
+            "16": 2,
+            "17": 2
           },
           "Branches": []
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Migrations\\20210412144221_InitialCreate.cs": {
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Migrations\\20210419131816_InitialCreate.cs": {
       "Banco.Infrastructure.Data.Migrations.InitialCreate": {
         "System.Void Banco.Infrastructure.Data.Migrations.InitialCreate::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
           "Lines": {
@@ -554,7 +629,7 @@
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Migrations\\20210412144221_InitialCreate.Designer.cs": {
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Migrations\\20210419131816_InitialCreate.Designer.cs": {
       "Banco.Infrastructure.Data.Migrations.InitialCreate": {
         "System.Void Banco.Infrastructure.Data.Migrations.InitialCreate::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
           "Lines": {
@@ -733,6 +808,183 @@
             "101": 0,
             "102": 0,
             "104": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Base\\DbContextBase.cs": {
+      "Banco.Infrastructure.Data.Base.DbContextBase": {
+        "System.Void Banco.Infrastructure.Data.Base.DbContextBase::.ctor()": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.DbContextBase::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)": {
+          "Lines": {
+            "13": 2,
+            "14": 2,
+            "16": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\user\\source\\repos\\Banco.Solucion\\Banco.Infrastructure.Data\\Base\\GenericRepository.cs": {
+      "Banco.Infrastructure.Data.Base.GenericRepository`1": {
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::Add(T)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::AddRange(System.Collections.Generic.List`1<T>)": {
+          "Lines": {
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::Delete(T)": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::DeleteRange(System.Collections.Generic.List`1<T>)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::Update(T)": {
+          "Lines": {
+            "38": 2,
+            "39": 2,
+            "40": 2
+          },
+          "Branches": []
+        },
+        "T Banco.Infrastructure.Data.Base.GenericRepository`1::Find(System.Object)": {
+          "Lines": {
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> Banco.Infrastructure.Data.Base.GenericRepository`1::FindBy(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>)": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> Banco.Infrastructure.Data.Base.GenericRepository`1::FindBy(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>,System.Func`2<System.Linq.IQueryable`1<T>,System.Linq.IOrderedQueryable`1<T>>,System.String)": {
+          "Lines": {
+            "50": 0,
+            "51": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "69": 0,
+            "70": 0,
+            "72": 0
+          },
+          "Branches": [
+            {
+              "Line": 53,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 14,
+              "EndOffset": 26,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 58,
+              "Offset": 74,
+              "EndOffset": 50,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 58,
+              "Offset": 74,
+              "EndOffset": 76,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 84,
+              "EndOffset": 86,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 64,
+              "Offset": 84,
+              "EndOffset": 103,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            }
+          ]
+        },
+        "T Banco.Infrastructure.Data.Base.GenericRepository`1::FindFirstOrDefault(System.Linq.Expressions.Expression`1<System.Func`2<T,System.Boolean>>)": {
+          "Lines": {
+            "74": 2,
+            "75": 2,
+            "76": 2
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> Banco.Infrastructure.Data.Base.GenericRepository`1::GetAll()": {
+          "Lines": {
+            "78": 0,
+            "79": 0,
+            "80": 0
+          },
+          "Branches": []
+        },
+        "System.Void Banco.Infrastructure.Data.Base.GenericRepository`1::.ctor(Banco.Infrastructure.Data.Base.IDbContext)": {
+          "Lines": {
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2
           },
           "Branches": []
         }

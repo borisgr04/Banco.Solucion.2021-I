@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Banco.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20210412144221_InitialCreate")]
+    [Migration("20210419131816_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

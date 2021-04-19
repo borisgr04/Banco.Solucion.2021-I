@@ -21,17 +21,11 @@ namespace Banco.Infrastructure.Data
         public DbSet<CuentaBancaria> CuentasBancarias { get; set; }//equivale a Repositorios
         public DbSet<CuentaAhorro> CuentasAhorro { get; set; }
         public DbSet<CuentaCorriente> CuentasCorriente { get; set; }
-     
-
-        //se debe quitar posteriomente para trabajarlo con inyeccion de dependencias. 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         => optionsBuilder.UseSqlite(@"Data Source=C:\sqlite\bancoDataBase.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<CuentaBancaria>()
-            //    .Property(b => b.Nombre)
-            //    .HasColumnName("cue_nom");
+            modelBuilder.Entity<CuentaBancaria>().HasKey(c => c.Id);
+            modelBuilder.Entity<MovimientoFinanciero>().HasKey(c => c.Id);
         }
     }
 }
