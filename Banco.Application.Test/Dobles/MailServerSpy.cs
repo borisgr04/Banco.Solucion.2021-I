@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Banco.Application.Test.Dobles
 {
-    public class MailServerFake : IMailServer
+    public class MailServerSpy : IMailServer
     {
         public void Send(string v, string email)
         {
