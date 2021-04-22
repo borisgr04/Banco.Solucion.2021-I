@@ -27,14 +27,18 @@ namespace Banco.Domain
             {
                 return "El valor a consignar es incorrecto";
             }
+            MovimientoFinanciero movimiento;
             if (Saldo == 0 && valor >= 50000)
             {
-                var movimiento = new MovimientoFinanciero(this, 0, valor, fechaMovimiento);
+                movimiento= new MovimientoFinanciero(this, 0, valor, fechaMovimiento);
                 Movimientos.Add(movimiento);
                 Saldo += valor;
                 return $"Su Nuevo Saldo es de ${valor:n2} pesos m/c";
             }
-            throw new NotImplementedException();
+            movimiento = new MovimientoFinanciero(this, 0, valor, fechaMovimiento);
+            Movimientos.Add(movimiento);
+            Saldo += valor;
+            return $"Su Nuevo Saldo es de ${Saldo:n2} pesos m/c";
         }
 
         public abstract string Retirar(decimal valor, string ciudad, DateTime fechaMovimiento);

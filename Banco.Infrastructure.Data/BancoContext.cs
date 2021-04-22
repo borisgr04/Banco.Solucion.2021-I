@@ -9,14 +9,12 @@ namespace Banco.Infrastructure.Data
 {
     public class BancoContext: DbContextBase
     {
-        public BancoContext() :base()
-        {
         
-        }
         public BancoContext(DbContextOptions options) : base(options)
         {
 
         }
+       
 
         public DbSet<CuentaBancaria> CuentasBancarias { get; set; }//equivale a Repositorios
         public DbSet<CuentaAhorro> CuentasAhorro { get; set; }

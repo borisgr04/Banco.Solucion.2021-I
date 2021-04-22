@@ -8,7 +8,7 @@ namespace Banco.Infrastructure.Systems
         public void Send(string v, string email)
         {
             //enviamos el correo electronico con el servidor determinado
-            throw new NotImplementedException();
+             
         }
     }
 }

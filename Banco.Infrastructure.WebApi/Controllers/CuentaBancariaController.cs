@@ -43,5 +43,12 @@ namespace Banco.Infrastructure.WebApi.Controllers
             var response = service.Consignar(numeroCuenta, ciudad, valor, fechaMovimiento);
             return response;
         }
+        [HttpPost("cuenta")]
+        public string PostCrearCuenta(CuentaBancariaRequest request)
+        {
+            var service = new CrearCuentaBancariaService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
+            var response = service.CrearCuentaBancaria(request);
+            return response;
+        }
     }
 }

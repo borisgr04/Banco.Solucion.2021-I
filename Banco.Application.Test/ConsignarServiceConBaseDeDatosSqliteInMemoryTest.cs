@@ -2,13 +2,14 @@ using Banco.Application.Test.Dobles;
 using Banco.Domain;
 using Banco.Infrastructure.Data;
 using Banco.Infrastructure.Data.ObjectMother;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using NUnit.Framework;
+using System.Data.Common;
 
 namespace Banco.Application.Test
 {
-    [Ignore("Falta configurar la sqlite InMemroy")]
     public class ConsignarServiceConBaseDeDatosSqliteInMemoryTest
     {
         private BancoContext _dbContext;
@@ -21,17 +22,25 @@ namespace Banco.Application.Test
         {
             //Arrange
             var optionsSqlite = new DbContextOptionsBuilder<BancoContext>()
-           .UseSqlite(@"Data Source=:memory:")
+           .UseSqlite(CreateInMemoryDatabase())
            .Options;
 
             _dbContext = new BancoContext(optionsSqlite);
+            _dbContext.Database.EnsureCreated();
 
             _consignarService = new ConsignarService(
                 new UnitOfWork(_dbContext),
                 new CuentaBancariaRepository(_dbContext),
                 new MailServerSpy());
         }
+        private static DbConnection CreateInMemoryDatabase()
+        {
+            var connection = new SqliteConnection("Filename=:memory:");
 
+            connection.Open();
+
+            return connection;
+        }
         [Test]
         public void ConsignarTest()
         {
