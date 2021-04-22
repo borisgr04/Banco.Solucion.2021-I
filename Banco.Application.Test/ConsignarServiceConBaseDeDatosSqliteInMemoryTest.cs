@@ -14,11 +14,12 @@ namespace Banco.Application.Test
     {
         private BancoContext _dbContext;
         private ConsignarService _consignarService;//SUT - Objeto bajo prueba
-                
+        private MailServerSpy _mailServerSpy;
         [SetUp]
         public void Setup()
         {
             //Arrange
+            _mailServerSpy = new MailServerSpy();
             var optionsSqlite = new DbContextOptionsBuilder<BancoContext>()
            .UseSqlite(SqlLiteDatabaseInMemory.CreateConnection())
            .Options;
@@ -29,7 +30,8 @@ namespace Banco.Application.Test
             _consignarService = new ConsignarService(
                 new UnitOfWork(_dbContext),
                 new CuentaBancariaRepository(_dbContext),
-                new MailServerSpy());
+                _mailServerSpy
+                );
         }
       
         [Test]
@@ -45,8 +47,9 @@ namespace Banco.Application.Test
             //Act
             var response= _consignarService.Consignar(cuentaAhorro.Numero, "VALLEDUPAR",0, new System.DateTime(2021,1,2));
             //Assert
+            TestContext.WriteLine(_mailServerSpy.Email);
             Assert.AreEqual("El valor a consignar es incorrecto", response);
-
+            Assert.AreEqual(_mailServerSpy.CantidadLlamadas, 1);
             //
             //Revertir
             _dbContext.CuentasBancarias.Remove(cuentaAhorro);
