@@ -5,10 +5,10 @@ namespace Banco.Infrastructure.Systems
 {
     public class MailServer : IMailServer
     {
-        public void Send(string v, string email)
+        public string Send(string message, string email)
         {
             //enviamos el correo electronico con el servidor determinado
-             
+            return "Se envío el correo";
         }
     }
 }

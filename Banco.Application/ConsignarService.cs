@@ -27,7 +27,11 @@ namespace Banco.Application
             var response = cuenta.Consignar(valor, ciudad, fechaMovimiento);//domain
             _cuentaRepository.Update(cuenta);//proyectarse el cambio y registrarlo en la unidad de trabajo
             _unitOfWork.Commit();//infraestructura-datos
-            _emailServer.Send("Se efectúo consignacion", cuenta.Email);//infraestructura-system
+            var responseMail=_emailServer.Send("Se efectúo consignación", cuenta.Email);//infraestructura-system
+            if (responseMail != "Se envío el correo") 
+            {
+                response += "- Hubo problemas enviando el correo";
+            }
             return response;
         }
 

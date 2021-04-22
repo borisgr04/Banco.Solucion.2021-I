@@ -16,11 +16,12 @@ namespace Banco.Application.Test.Dobles
         {
             CantidadLlamadas = 0;
         }
-        public void Send(string v, string email)
+        public string Send(string v, string email)
         {
             CantidadLlamadas++;
             Email = email;
             Console.WriteLine("Se enviar el email");
+            return "Se envío el correo";
         }
     }
 }

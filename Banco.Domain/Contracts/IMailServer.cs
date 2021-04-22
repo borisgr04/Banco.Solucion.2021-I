@@ -6,6 +6,6 @@ namespace Banco.Domain.Contracts
 {
     public interface IMailServer
     {
-        void Send(string v, string email);
+        string Send(string message, string email);
     }
 }
