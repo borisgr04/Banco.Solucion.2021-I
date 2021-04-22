@@ -21,11 +21,11 @@ namespace Banco.Application.Test
                 new CuentaBancariaRepositoryStub(),
                 spy);
             //Act
-            var response=service.Consignar("1010","VALLEDUPAR",0, new System.DateTime(2020,1,1));
+            var response=service.Consignar(new ConsignarRequest("1010","VALLEDUPAR",0, new System.DateTime(2020,1,1)));
             //Assert
             Assert.AreEqual(1, spy.CantidadLlamadas);
             Assert.AreEqual("cliente@bancoacme.com", spy.Email);
-            Assert.AreEqual("El valor a consignar es incorrecto", response);
+            Assert.AreEqual("El valor a consignar es incorrecto", response.Mensaje);
         }
         
         [Test]
@@ -38,11 +38,11 @@ namespace Banco.Application.Test
                 new CuentaBancariaRepositoryStub(),
                 spy);
             //Act
-            var response=service.Consignar("1010","VALLEDUPAR",0, new System.DateTime(2020,1,1));
+            var response=service.Consignar(new ConsignarRequest("1010","VALLEDUPAR",0, new System.DateTime(2020,1,1)));
             //Assert
             Assert.AreEqual(1, spy.CantidadLlamadas);
             Assert.AreEqual("cliente@bancoacme.com", spy.Email);
-            Assert.AreEqual("El valor a consignar es incorrecto", response);
+            Assert.AreEqual("El valor a consignar es incorrecto", response.Mensaje);
         }
     }
 }

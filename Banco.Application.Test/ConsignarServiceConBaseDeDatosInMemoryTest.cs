@@ -41,9 +41,9 @@ namespace Banco.Application.Test
             _dbContext.SaveChanges();
 
             //Act
-            var response= _consignarService.Consignar(cuentaAhorro.Numero, "VALLEDUPAR",0, new System.DateTime(2021,1,2));
+            var response= _consignarService.Consignar(new ConsignarRequest(cuentaAhorro.Numero, "VALLEDUPAR",0, new System.DateTime(2021,1,2)));
             //Assert
-            Assert.AreEqual("El valor a consignar es incorrecto", response);
+            Assert.AreEqual("El valor a consignar es incorrecto", response.Mensaje);
 
             //
             //Revertir
@@ -65,9 +65,9 @@ namespace Banco.Application.Test
 
             
             //Act
-            var response = _consignarService.Consignar(cuentaAhorro.Numero, "VALLEDUPAR", 50000, new System.DateTime(2021, 1, 2));
+            var response = _consignarService.Consignar(new ConsignarRequest(cuentaAhorro.Numero, "VALLEDUPAR", 50000, new System.DateTime(2021, 1, 2)));
             //Assert
-            Assert.AreEqual("Su Nuevo Saldo es de $50.000,00 pesos m/c", response);
+            Assert.AreEqual("Su Nuevo Saldo es de $50.000,00 pesos m/c", response.Mensaje);
 
             //Revertir
             _dbContext.CuentasBancarias.Remove(cuentaAhorro);

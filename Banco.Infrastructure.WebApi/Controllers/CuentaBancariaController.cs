@@ -37,10 +37,10 @@ namespace Banco.Infrastructure.WebApi.Controllers
         }
 
         [HttpPost]
-        public string PostConsignar(string numeroCuenta, string ciudad, decimal valor, DateTime fechaMovimiento) 
+        public ConsignarResponse PostConsignar(ConsignarRequest request) 
         {
             var service = new ConsignarService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
-            var response = service.Consignar(numeroCuenta, ciudad, valor, fechaMovimiento);
+            var response = service.Consignar(request);
             return response;
         }
         [HttpPost("cuenta")]
