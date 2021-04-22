@@ -14,15 +14,13 @@ namespace Banco.Application.Test
     {
         private BancoContext _dbContext;
         private ConsignarService _consignarService;//SUT - Objeto bajo prueba
-
-        //https://www.meziantou.net/testing-ef-core-in-memory-using-sqlite.htm
-        //se ejecuta una vez por cada prueba //hace parte del Arrange
+                
         [SetUp]
         public void Setup()
         {
             //Arrange
             var optionsSqlite = new DbContextOptionsBuilder<BancoContext>()
-           .UseSqlite(CreateInMemoryDatabase())
+           .UseSqlite(SqlLiteDatabaseInMemory.CreateConnection())
            .Options;
 
             _dbContext = new BancoContext(optionsSqlite);
@@ -33,14 +31,7 @@ namespace Banco.Application.Test
                 new CuentaBancariaRepository(_dbContext),
                 new MailServerSpy());
         }
-        private static DbConnection CreateInMemoryDatabase()
-        {
-            var connection = new SqliteConnection("Filename=:memory:");
-
-            connection.Open();
-
-            return connection;
-        }
+      
         [Test]
         public void ConsignarTest()
         {
