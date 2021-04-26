@@ -23,9 +23,9 @@ namespace Banco.Application.Test
            .Options;
 
             _dbContext = new BancoContext(optionsSqlite);
-            if (!_dbContext.Database.EnsureCreated()) { 
-                _dbContext.Database.EnsureCreated();
-            }
+            _dbContext.Database.EnsureDeleted();
+            _dbContext.Database.EnsureCreated();
+            
             _consignarService = new ConsignarService(
                 new UnitOfWork(_dbContext),
                 new CuentaBancariaRepository(_dbContext),
