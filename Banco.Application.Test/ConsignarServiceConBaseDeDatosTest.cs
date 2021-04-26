@@ -60,8 +60,6 @@ namespace Banco.Application.Test
             //10 entidad inicializadas
 
             var cuentaAhorro = CuentaBancariaMother.CreateCuentaAhorros("1015");
-
-
             _dbContext.CuentasBancarias.Add(cuentaAhorro);
             _dbContext.SaveChanges();
 
