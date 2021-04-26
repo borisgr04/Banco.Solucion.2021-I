@@ -31,10 +31,10 @@ namespace Banco.Application
             _cuentaRepository.Update(cuenta);//proyectarse el cambio y registrarlo en la unidad de trabajo
             _unitOfWork.Commit();//infraestructura-datos
             var responseMail=_emailServer.Send("Se efectúo consignación", cuenta.Email);//infraestructura-system
-            if (responseMail != "Se envío el correo") 
-            {
-                response += "- Hubo problemas enviando el correo";
-            }
+           // if (responseMail != "Se envío el correo") 
+           // {
+           //      response += "- Hubo problemas enviando el correo";
+           // }
             return new ConsignarResponse(response);
         }
 
