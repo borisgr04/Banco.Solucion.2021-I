@@ -90,7 +90,7 @@ namespace Banco.Application.Test
             //Act
             var response = _consignarService.Consignar(new ConsignarRequest(cuentaAhorro.Numero, "VALLEDUPAR", 50000, new System.DateTime(2021, 1, 2)));
             //Assert
-            Assert.AreEqual("Su Nuevo Saldo es de $50.000,00 pesos m/c", response.Mensaje);
+            Assert.AreEqual("Su Nuevo Saldo es de $ 50.000,00 pesos m/c", response.Mensaje);
             
             mockEmailServer.Verify(x => x.Send(It.IsAny<string>(), cuentaAhorro.Email), Times.Once);
             
@@ -123,7 +123,7 @@ namespace Banco.Application.Test
             //Act
             var response = _consignarService.Consignar(new ConsignarRequest(cuentaAhorro.Numero, "VALLEDUPAR", 50000, new System.DateTime(2021, 1, 2)));
             //Assert
-            Assert.AreEqual("Su Nuevo Saldo es de $50.000,00 pesos m/c", response.Mensaje);
+            Assert.AreEqual("Su Nuevo Saldo es de $ 50.000,00 pesos m/c", response.Mensaje);
 
             mockEmailServer.Verify(x => x.Send(It.IsAny<string>(), cuentaAhorro.Email), Times.Once);
 

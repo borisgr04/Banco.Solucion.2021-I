@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Banco.Domain
 {
@@ -8,6 +9,11 @@ namespace Banco.Domain
 
         public CuentaCorriente( string numero, string nombre, string ciudad, string email) : base( numero, nombre, ciudad, email)
         {
+        }
+
+        public override List<string> PuedeRetirar(decimal valor)
+        {
+            throw new NotImplementedException();
         }
 
         public override string Retirar(decimal valor, string ciudad, DateTime fechaMovimiento)

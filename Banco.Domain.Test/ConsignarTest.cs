@@ -54,7 +54,7 @@ namespace Banco.Domain.Test
             // ACT // ACCION // CUANDO // WHEN
             var resultado = cuentaAhorro.Consignar(50000, "VALLEDUPAR", new System.DateTime(2021,1,30));
             //ASSERT //AFIRMACION //ENTONCES //THEN
-            Assert.AreEqual("Su Nuevo Saldo es de $50.000,00 pesos m/c", resultado);
+            Assert.AreEqual("Su Nuevo Saldo es de $ 50.000,00 pesos m/c", resultado);
         }
     }
 }

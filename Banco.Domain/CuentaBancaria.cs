@@ -1,6 +1,7 @@
 ﻿using Banco.Domain.Base;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Banco.Domain
@@ -33,15 +34,16 @@ namespace Banco.Domain
                 movimiento= new MovimientoFinanciero(this, 0, valor, fechaMovimiento);
                 Movimientos.Add(movimiento);
                 Saldo += valor;
-                return $"Su Nuevo Saldo es de ${valor:n2} pesos m/c";
+                return $"Su Nuevo Saldo es de {valor.ToString("C2", new CultureInfo("es-CO"))} pesos m/c";
             }
             movimiento = new MovimientoFinanciero(this, 0, valor, fechaMovimiento);
             Movimientos.Add(movimiento);
             Saldo += valor;
-            return $"Su Nuevo Saldo es de ${Saldo:n2} pesos m/c";
+            return $"Su Nuevo Saldo es de {Saldo.ToString("C2", new CultureInfo("es-CO"))} pesos m/c";
         }
 
         public abstract string Retirar(decimal valor, string ciudad, DateTime fechaMovimiento);
+        public abstract List<string> PuedeRetirar(decimal valor);
 
         public override string ToString()
         {

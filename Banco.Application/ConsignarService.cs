@@ -1,5 +1,6 @@
 ﻿using Banco.Domain.Contracts;
 using System;
+using System.Globalization;
 
 namespace Banco.Application
 {
@@ -21,6 +22,7 @@ namespace Banco.Application
             _unitOfWork = unitOfWork;
             _cuentaRepository = cuentaRepository;
             _emailServer = emailServer;
+
         }
 
         public ConsignarResponse Consignar(ConsignarRequest request)
@@ -42,31 +44,5 @@ namespace Banco.Application
     public record ConsignarRequest(string NumeroCuenta, string Ciudad, decimal Valor, DateTime FechaMovimiento);
     public record ConsignarResponse(string Mensaje);
 
-    /*public class ConsignarRequest
-     {
-         public ConsignarRequest(string numeroCuenta, string ciudad, decimal valor, DateTime fechaMovimiento)
-         {
-             NumeroCuenta = numeroCuenta;
-             Ciudad = ciudad;
-             Valor = valor;
-             FechaMovimiento = fechaMovimiento;
-         }
 
-         public string NumeroCuenta { get; set; }
-         public string Ciudad { get; set; }
-         public decimal Valor { get; set; }
-         public  DateTime FechaMovimiento { get; set; }
-     }
-    */
-
-
-    /*public class ConsignarResponse 
-    {
-        public ConsignarResponse(string mensaje)
-        {
-            Mensaje = mensaje;
-        }
-
-        public string Mensaje { get; set; }
-    }*/
 }
