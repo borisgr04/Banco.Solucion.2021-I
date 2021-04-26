@@ -19,7 +19,7 @@ namespace Banco.Domain
     
     }
 
-3. Implementar el repositorio generico para la entidad en la infraestructura, va a hererad del repositorio generico y va a implementar la interfaz que definimos para la entidad
+3. Implementar el repositorio genérico para la entidad/agregado raíz en la infraestructura. Este va a hererad del repositorio genérico y va a implementar la interfaz que definimos para la entidad
 
 namespace Banco.Infrastructure.Data
 {
