@@ -4,7 +4,7 @@ namespace Banco.Domain.Test
 {
     public class Tests
     {
-        [SetUp]
+        [SetUp] 
         public void Setup()
         {
         }
@@ -26,9 +26,9 @@ namespace Banco.Domain.Test
         public void NoPuedeConsignarCeroPesos()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR","client@clientebanco");
+            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "client@clientebanco");
             // ACT // ACCION // CUANDO // WHEN
-            var resultado=cuentaAhorro.Consignar(0, "VALLEDUPAR", new System.DateTime(2020,2,10));
+            var resultado = cuentaAhorro.Consignar(0, "VALLEDUPAR", new System.DateTime(2020, 2, 10));
             //ASSERT //AFIRMACION //ENTONCES //THEN
             Assert.AreEqual("El valor a consignar es incorrecto", resultado);
         }
@@ -50,11 +50,13 @@ namespace Banco.Domain.Test
         public void PuedeConsignar50MilPesosInicialmente()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR","cliente@bancoacme.com");
+            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com");
             // ACT // ACCION // CUANDO // WHEN
-            var resultado = cuentaAhorro.Consignar(50000, "VALLEDUPAR", new System.DateTime(2021,1,30));
+            var resultado = cuentaAhorro.Consignar(50000, "VALLEDUPAR", new System.DateTime(2021, 1, 30));
             //ASSERT //AFIRMACION //ENTONCES //THEN
             Assert.AreEqual("Su Nuevo Saldo es de $ 50.000,00 pesos m/c", resultado);
         }
+
+       
     }
 }
