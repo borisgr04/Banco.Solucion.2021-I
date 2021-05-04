@@ -26,5 +26,11 @@ pipeline {
       }
     }
 
+    stage('Print ') {
+      steps {
+        echo 'Rama'
+      }
+    }
+
   }
 }
