@@ -6,16 +6,23 @@ pipeline {
         checkout scm
       }
     }
-     
-    stage('Print') {
-      steps {
-        echo 'Descargado'
-      }
-    }
 
     stage('Restore') {
       steps {
-        sh 'dotnet restore'
+        bat 'dotnet restore'
+        bat 'dotnet clean'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        bat 'dotnet build  --configuration Release'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        bat 'dotnet test --logger trx;LogFileName=unit_tests.trx'
       }
     }
 
