@@ -1,0 +1,1 @@
+dotnet build Banco.Solucion.sln /nologo /p:PublishProfile=Release /p:PackageLocation="G:\2021\Publish\package" /p:OutDir="G:\2021\Publish\out" /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /maxcpucount:1 /p:platform="Any CPU" /p:configuration="Release" /p:DesktopBuildPackageLocation="G:\2021\Publish\package\package.zip"
