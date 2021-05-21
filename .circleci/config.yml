@@ -11,3 +11,4 @@
        - checkout
        - run: dotnet build
        - run: dotnet test --no-build --verbosity normal
+       - run: dotnet publish --no-restore --no-build -c Release -o /output   
