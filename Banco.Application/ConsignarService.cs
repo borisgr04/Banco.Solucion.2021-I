@@ -42,7 +42,20 @@ namespace Banco.Application
 
     }
     public record ConsignarRequest(string NumeroCuenta, string Ciudad, decimal Valor, DateTime FechaMovimiento);
-    public record ConsignarResponse(string Mensaje);
+    public record ConsignarResponse 
+    {
+        public ConsignarResponse()
+        {
+
+        }
+
+        public ConsignarResponse(string mensaje)
+        {
+            Mensaje = mensaje;
+        }
+
+        public string Mensaje { get; set; }
+    }
 
 
 }

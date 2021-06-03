@@ -27,7 +27,6 @@ namespace Banco.Infrastructure.WebApi.Controllers
             _cuentaBancariaRepository = cuentaBancariaRepository;
             _mailServer = mailServer;
 
-
             if (!cuentaBancariaRepository.GetAll().Any()) 
             {
                 var cuenta = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com");
@@ -37,18 +36,19 @@ namespace Banco.Infrastructure.WebApi.Controllers
         }
 
         [HttpPost]
-        public ConsignarResponse PostConsignar(ConsignarRequest request) 
-        {
-            var service = new ConsignarService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
-            var response = service.Consignar(request);
-            return response;
-        }
-        [HttpPost("cuenta")]
-        public string PostCrearCuenta(CuentaBancariaRequest request)
+        public ActionResult<string> PostCrearCuenta(CuentaBancariaRequest request)
         {
             var service = new CrearCuentaBancariaService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
             var response = service.CrearCuentaBancaria(request);
-            return response;
+            return Ok(response);
+        }
+
+        [HttpPost("Consignacion")]
+        public ActionResult<ConsignarResponse> PostConsignar(ConsignarRequest request)
+        {
+            var service = new ConsignarService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
+            var response = service.Consignar(request);
+            return Ok(response);
         }
     }
 }
