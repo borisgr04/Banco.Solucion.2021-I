@@ -31,9 +31,10 @@ namespace Banco.Application
             CuentaBancaria cuenta = _cuentaRepository.FindFirstOrDefault(t => t.Numero == request.Numero);
             if (cuenta == null)
             {
+                //consecutivo.Numero.ToString(),
                 CuentaBancaria cuentaNueva =  TipoCuenta.CrearCuenta(
                                                 request.TipoCuenta,
-                                                consecutivo.Numero.ToString(),
+                                                request.Numero,
                                                 request.Nombre,
                                                 request.Ciudad,
                                                 request.Email,
