@@ -3,6 +3,7 @@ using Banco.Domain.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Banco.Application
 {
@@ -24,17 +25,20 @@ namespace Banco.Application
         }
         public string CrearCuentaBancaria(CuentaBancariaRequest request)
         {
-            var consecutivo = _unitOfWork.ConsecutivoRepository.Find(1);
-            consecutivo.Incrementar();
+            
             
 
             CuentaBancaria cuenta = _cuentaRepository.FindFirstOrDefault(t => t.Numero == request.Numero);
             if (cuenta == null)
             {
-                //consecutivo.Numero.ToString(),
+                var consecutivo = _unitOfWork.ConsecutivoRepository.Find(1);
+                consecutivo.Incrementar();
+                //var numero = consecutivo.Numero.ToString();
+                Thread.Sleep(1000);
+                var numero = request.Numero;
                 CuentaBancaria cuentaNueva =  TipoCuenta.CrearCuenta(
                                                 request.TipoCuenta,
-                                                request.Numero,
+                                                numero,
                                                 request.Nombre,
                                                 request.Ciudad,
                                                 request.Email,
@@ -43,7 +47,7 @@ namespace Banco.Application
                 _cuentaRepository.Add(cuentaNueva);
                 _unitOfWork.Commit();
                 
-                return $"Se creó con exito la cuenta {cuentaNueva.Numero}.";
+                return $"Se creo con exito la cuenta {cuentaNueva.Numero}.";
             }
             else
             {

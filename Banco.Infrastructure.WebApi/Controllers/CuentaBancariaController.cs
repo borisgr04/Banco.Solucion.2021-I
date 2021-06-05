@@ -39,16 +39,16 @@ namespace Banco.Infrastructure.WebApi.Controllers
         [HttpPost]
         public ActionResult<string> PostCrearCuenta(CuentaBancariaRequest request)
         {
-            try
-            {
+            //try
+            //{
                 var service = new CrearCuentaBancariaService(_unitOfWork, _cuentaBancariaRepository, _mailServer);
                 var response = service.CrearCuentaBancaria(request);
                 return Ok(response); 
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            //}
+            //catch (DbUpdateConcurrencyException ex)
+            //{
+            //    return BadRequest(ex.Message);
+            //}
 
             
         }
