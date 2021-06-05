@@ -63,7 +63,7 @@ namespace Banco.Infrastructure.WebApi.Test
             var responseHttp = await httpClient.PostAsync("api/CuentaBancaria", content);
             responseHttp.StatusCode.Should().Be(HttpStatusCode.OK);
             var respuesta = await responseHttp.Content.ReadAsStringAsync();
-            respuesta.Should().Be($"Se creó con exito la cuenta {request.Numero}.");
+            respuesta.Should().Be($"Se creo con exito la cuenta {request.Numero}.");
             var context = _factory.CreateContext();
             var cuentaBancariaInicial = context.CuentasBancarias.FirstOrDefault(t => t.Numero == request.Numero);
             cuentaBancariaInicial.Should().NotBeNull();
