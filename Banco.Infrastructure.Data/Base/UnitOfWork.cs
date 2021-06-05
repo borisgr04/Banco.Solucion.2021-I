@@ -11,6 +11,8 @@ namespace Banco.Infrastructure.Data
         private readonly IDbContext _context;
         public UnitOfWork(IDbContext context) => _context = context;
 
+        private IConsecutivoRepository _consecutivoRepository;
+        public IConsecutivoRepository ConsecutivoRepository { get { return _consecutivoRepository ?? (_consecutivoRepository = new ConsecutivoRepository(_context)); } }
         public void Commit()
         {
             _context.SaveChanges();

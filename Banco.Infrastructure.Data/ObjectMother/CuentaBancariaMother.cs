@@ -13,7 +13,7 @@ namespace Banco.Infrastructure.Data.ObjectMother
 
         public static CuentaBancaria CreateCuentaAhorros(string numeroCuenta) 
         {
-             return new CuentaAhorro(numeroCuenta, "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com"); ;
+             return new CuentaAhorro(numeroCuenta, "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com", DateTime.Now); 
         }
     }
 }

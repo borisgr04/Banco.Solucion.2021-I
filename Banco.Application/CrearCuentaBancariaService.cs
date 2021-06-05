@@ -24,18 +24,24 @@ namespace Banco.Application
         }
         public string CrearCuentaBancaria(CuentaBancariaRequest request)
         {
+            var consecutivo = _unitOfWork.ConsecutivoRepository.Find(1);
+            consecutivo.Incrementar();
+            
+
             CuentaBancaria cuenta = _cuentaRepository.FindFirstOrDefault(t => t.Numero == request.Numero);
             if (cuenta == null)
             {
                 CuentaBancaria cuentaNueva =  TipoCuenta.CrearCuenta(
                                                 request.TipoCuenta,
-                                                request.Numero,
+                                                consecutivo.Numero.ToString(),
                                                 request.Nombre,
                                                 request.Ciudad,
-                                                request.Email
+                                                request.Email,
+                                                DateTime.Now
                                                 );
                 _cuentaRepository.Add(cuentaNueva);
                 _unitOfWork.Commit();
+                
                 return $"Se creó con exito la cuenta {cuentaNueva.Numero}.";
             }
             else
@@ -56,13 +62,13 @@ namespace Banco.Application
     }
     public static class TipoCuenta
     {
-        public static CuentaBancaria CrearCuenta(string tipoCuenta, string numero, string nombre, string ciudad, string email)
+        public static CuentaBancaria CrearCuenta(string tipoCuenta, string numero, string nombre, string ciudad, string email, DateTime fecha)
         {
             if (tipoCuenta.Equals("Ahorro"))
             {
-                return new CuentaAhorro(numero, nombre, ciudad, email);
+                return new CuentaAhorro(numero, nombre, ciudad, email, fecha);
             }
-            return new CuentaCorriente(numero, nombre, ciudad, email);
+            return new CuentaCorriente(numero, nombre, ciudad, email, fecha);
         }
     }
 }

@@ -1,14 +1,11 @@
 using NUnit.Framework;
+using System;
 
 namespace Banco.Domain.Test
 {
     public class Tests
     {
-        [SetUp] 
-        public void Setup()
-        {
-        }
-
+    
 
         /*
          H1: Como Usuario quiero realizar consignaciones a una cuenta de ahorro para salvaguardar el dinero.
@@ -26,7 +23,7 @@ namespace Banco.Domain.Test
         public void NoPuedeConsignarCeroPesos()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "client@clientebanco");
+            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "client@clientebanco", DateTime.Now );
             // ACT // ACCION // CUANDO // WHEN
             var resultado = cuentaAhorro.Consignar(0, "VALLEDUPAR", new System.DateTime(2020, 2, 10));
             //ASSERT //AFIRMACION //ENTONCES //THEN
@@ -50,7 +47,7 @@ namespace Banco.Domain.Test
         public void PuedeConsignar50MilPesosInicialmente()
         {
             //ARRANGE //PREPARAR // DADO // GIVEN
-            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com");
+            var cuentaAhorro = new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com", DateTime.Now);
             // ACT // ACCION // CUANDO // WHEN
             var resultado = cuentaAhorro.Consignar(50000, "VALLEDUPAR", new System.DateTime(2021, 1, 30));
             //ASSERT //AFIRMACION //ENTONCES //THEN

@@ -7,7 +7,7 @@ namespace Banco.Domain
     {
         public const decimal SOBREGIRO = -1000;
 
-        public CuentaCorriente( string numero, string nombre, string ciudad, string email) : base( numero, nombre, ciudad, email)
+        public CuentaCorriente( string numero, string nombre, string ciudad, string email, DateTime fecha) : base( numero, nombre, ciudad, email, fecha)
         {
         }
 
