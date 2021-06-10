@@ -3,6 +3,7 @@ using Banco.Domain.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Banco.Application
 {
@@ -24,19 +25,29 @@ namespace Banco.Application
         }
         public string CrearCuentaBancaria(CuentaBancariaRequest request)
         {
+            
+            
+
             CuentaBancaria cuenta = _cuentaRepository.FindFirstOrDefault(t => t.Numero == request.Numero);
             if (cuenta == null)
             {
+                var consecutivo = _unitOfWork.ConsecutivoRepository.Find(1);
+                consecutivo.Incrementar();
+                //var numero = consecutivo.Numero.ToString();
+                Thread.Sleep(1000);
+                var numero = request.Numero;
                 CuentaBancaria cuentaNueva =  TipoCuenta.CrearCuenta(
                                                 request.TipoCuenta,
-                                                request.Numero,
+                                                numero,
                                                 request.Nombre,
                                                 request.Ciudad,
-                                                request.Email
+                                                request.Email,
+                                                DateTime.Now
                                                 );
                 _cuentaRepository.Add(cuentaNueva);
                 _unitOfWork.Commit();
-                return $"Se creó con exito la cuenta {cuentaNueva.Numero}.";
+                
+                return $"Se creo con exito la cuenta {cuentaNueva.Numero}.";
             }
             else
             {
@@ -56,13 +67,13 @@ namespace Banco.Application
     }
     public static class TipoCuenta
     {
-        public static CuentaBancaria CrearCuenta(string tipoCuenta, string numero, string nombre, string ciudad, string email)
+        public static CuentaBancaria CrearCuenta(string tipoCuenta, string numero, string nombre, string ciudad, string email, DateTime fecha)
         {
             if (tipoCuenta.Equals("Ahorro"))
             {
-                return new CuentaAhorro(numero, nombre, ciudad, email);
+                return new CuentaAhorro(numero, nombre, ciudad, email, fecha);
             }
-            return new CuentaCorriente(numero, nombre, ciudad, email);
+            return new CuentaCorriente(numero, nombre, ciudad, email, fecha);
         }
     }
 }

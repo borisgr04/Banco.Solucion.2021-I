@@ -10,7 +10,7 @@ namespace Banco.Infrastructure.WebApi.Test.Base
     public class CustomWebApplicationFactory<TStartup>
     : WebApplicationFactory<TStartup> where TStartup : class
     {
-        private readonly string _connectionString=@"Data Source=C:\sqlite\bancoDataBaseTest.db";
+        private readonly string _connectionString=@"Data Source=C:\sqlite\bancoDataBaseEndToEnd.db";
         public BancoContext CreateContext() 
         {
             var builder = new DbContextOptionsBuilder<BancoContext>().UseSqlite(_connectionString);

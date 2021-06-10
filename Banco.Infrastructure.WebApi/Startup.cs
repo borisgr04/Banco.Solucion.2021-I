@@ -26,7 +26,7 @@ namespace Banco.Infrastructure.WebApi
         {
             var connectionString = Configuration.GetConnectionString("BancoContext");//obtiene la configuracion del appsettitgs
 
-            services.AddDbContext<BancoContext>(opt => opt.UseSqlite(connectionString));
+            services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connectionString));
 
             ///Inyección de dependencia Especifica
             //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.0#register-additional-services-with-extension-methods

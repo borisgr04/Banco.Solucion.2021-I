@@ -1,4 +1,5 @@
-﻿using Banco.Domain.Contracts;
+﻿using Banco.Domain;
+using Banco.Domain.Contracts;
 using System;
 using System.Globalization;
 

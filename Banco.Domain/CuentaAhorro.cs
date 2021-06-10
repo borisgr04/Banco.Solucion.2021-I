@@ -9,7 +9,7 @@ namespace Banco.Domain
 
         public const decimal TOPERETIRO = 1000;
 
-        public CuentaAhorro(string numero, string nombre, string ciudad, string email) : base(numero, nombre, ciudad, email)
+        public CuentaAhorro(string numero, string nombre, string ciudad, string email, DateTime fecha) : base(numero, nombre, ciudad, email, fecha)
         {
         }
 

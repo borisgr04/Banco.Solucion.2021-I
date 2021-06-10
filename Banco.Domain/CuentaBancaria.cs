@@ -8,12 +8,13 @@ namespace Banco.Domain
 {
     public abstract class CuentaBancaria: Entity<int>, IServicioFinanciero, IAggregateRoot
     {
-        protected CuentaBancaria( string numero, string nombre, string ciudad, string email)
+        protected CuentaBancaria(string numero, string nombre, string ciudad, string email, DateTime fecha)
         {
             Nombre = nombre;
             Numero = numero;
             Ciudad = ciudad;
             Email = email;
+            Fecha = fecha;
             Movimientos = new List<MovimientoFinanciero>();
         }
         public List<MovimientoFinanciero> Movimientos { get; private set; }
@@ -22,6 +23,7 @@ namespace Banco.Domain
         public string Ciudad { get; private set; }
         public string Email { get; private set; }
         public decimal Saldo { get; protected set; }
+        public DateTime Fecha { get; protected set; }
         public virtual string Consignar(decimal valor, string ciudad, DateTime fechaMovimiento)
         {
             if (valor <= 0)

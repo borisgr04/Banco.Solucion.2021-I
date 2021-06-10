@@ -33,7 +33,7 @@ namespace Banco.Application.Test.Dobles
 
         public CuentaBancaria Find(object id)
         {
-            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com");
+            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com", DateTime.Now);
         }
 
         public IEnumerable<CuentaBancaria> FindBy(Expression<Func<CuentaBancaria, bool>> predicate)
@@ -48,7 +48,7 @@ namespace Banco.Application.Test.Dobles
 
         public CuentaBancaria FindFirstOrDefault(Expression<Func<CuentaBancaria, bool>> predicate)
         {
-            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com");
+            return new CuentaAhorro("10001", "Cuenta ejemplo", "VALLEDUPAR", "cliente@bancoacme.com", DateTime.Now);
         }
 
         public IEnumerable<CuentaBancaria> GetAll()
